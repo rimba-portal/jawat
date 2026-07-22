@@ -1,0 +1,30 @@
+{
+    "name": "rimba/jawat",
+    "description": "Represents a responsibility within the organization.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BIT Ecosystem",
+            "email": "bit.ecosystem@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "rimba/asas": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rimba\\Position\\PositionServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+           "Rimba\\Position\\": "src/"
+        }
+    },
+    "minimum-stability": "alpha",
+    "prefer-stable": true
+}
