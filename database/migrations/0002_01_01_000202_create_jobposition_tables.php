@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_positions', function (Blueprint $table) {
+        Schema::create('job_positions', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('org_unit_id')->nullable()->constrained();
             $table->enum('level', ['junior', 'mid', 'senior', 'lead', 'manager'])->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->json('attributes')->nullable();
             $table->timestamps();
         });
-        Schema::create('job_roles', function (Blueprint $table) {
+        Schema::create('job_roles', function (Blueprint $table): void {
             $table->id();
             $table->enum('type', ['approval', 'operation', 'admin', 'reporting'])->nullable();
             $table->string('name');
@@ -29,7 +29,7 @@ return new class extends Migration
             $table->json('attributes')->nullable();
             $table->timestamps();
         });
-        Schema::create('job_position_roles', function (Blueprint $table) {
+        Schema::create('job_position_roles', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('job_position_id')->constrained();
             $table->foreignId('job_role_id')->constrained();
