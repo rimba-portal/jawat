@@ -10,4 +10,7 @@ use Rimba\Position\Http\UI\Admin\Resources\JobPositions\JobPositionResource;
 class CreateJobPosition extends CreateRecord
 {
     protected static string $resource = JobPositionResource::class;
+
+    // Custom
+
 }
