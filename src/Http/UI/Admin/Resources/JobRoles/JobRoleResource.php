@@ -22,7 +22,7 @@ class JobRoleResource extends Resource
 {
     protected static ?string $model = JobRole::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ArrowSmallRight;
 
     protected static ?string $recordTitleAttribute = 'name';
 
