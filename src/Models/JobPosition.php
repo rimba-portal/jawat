@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Rimba\Agreement\Models\Agreement;
+use Rimba\Attributing\Traits\HasPersonAttributes;
 use Rimba\Organization\Models\OrgUnit;
 use Rimba\People\Models\StaffPosition;
 
@@ -25,6 +26,7 @@ use Rimba\People\Models\StaffPosition;
 class JobPosition extends Model
 {
     use HasFactory;
+    use HasPersonAttributes;
 
     /**
      * Get the attributes that should be cast.
