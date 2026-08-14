@@ -17,10 +17,13 @@ use Rimba\Position\Http\UI\Admin\Resources\JobRoles\Schemas\JobRoleForm;
 use Rimba\Position\Http\UI\Admin\Resources\JobRoles\Schemas\JobRoleInfolist;
 use Rimba\Position\Http\UI\Admin\Resources\JobRoles\Tables\JobRolesTable;
 use Rimba\Position\Models\JobRole;
+use UnitEnum;
 
 class JobRoleResource extends Resource
 {
     protected static ?string $model = JobRole::class;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Position';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ArrowSmallRight;
 
