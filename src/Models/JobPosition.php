@@ -8,16 +8,13 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Rimba\Agreement\Models\Agreement;
 use Rimba\Attributing\Traits\HasPersonAttributes;
+use Rimba\Hrm\Models\JobTitle;
 use Rimba\Organization\Models\OrgUnit;
-use Rimba\People\Models\Staff;
-use Rimba\People\Models\StaffPosition;
 
 #[Fillable([
-    'job_contract_id',
+    'uuid',
+    'job_title_id',
     'org_unit_id',
     'level',
     'status',
@@ -45,33 +42,9 @@ class JobPosition extends Model
         ];
     }
 
-    public function staffPositions(): HasMany
+    public function jobTitle(): BelongsTo
     {
-        return $this->hasMany(StaffPosition::class);
-    }
-
-    public function staffs(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            Staff::class,
-            'staff_positions'
-        );
-    }
-
-    public function agreement(): BelongsTo
-    {
-        return $this->belongsTo(Agreement::class);
-    }
-
-    public function occupants()
-    {
-        return $this->staffs()
-            ->whereHas(
-                'staffPositions',
-                fn ($q) => $q
-                    ->where('job_position_id', $this->id)
-                    ->where('status', 'active')
-            );
+        return $this->belongsTo(JobTitle::class);
     }
 
     public function orgUnit(): BelongsTo
