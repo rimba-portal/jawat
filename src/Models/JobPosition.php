@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Rimba\Agreement\Models\Agreement;
 use Rimba\Attributing\Traits\HasPersonAttributes;
 use Rimba\Hrm\Models\JobTitle;
 use Rimba\Organization\Models\OrgUnit;
@@ -50,5 +52,14 @@ class JobPosition extends Model
     public function orgUnit(): BelongsTo
     {
         return $this->belongsTo(OrgUnit::class);
+    }
+
+    public function agreements(): MorphToMany
+    {
+        return $this->morphToMany(
+            Agreement::class,
+            'scopeable',
+            'agreement_scopes'
+        );
     }
 }
