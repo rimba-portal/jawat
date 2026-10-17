@@ -25,6 +25,7 @@ return new class extends Migration
         });
         Schema::create('job_roles', function (Blueprint $table): void {
             $table->id();
+            $table->string('code')->unique();
             $table->enum('type', ['approval', 'operation', 'admin', 'reporting'])->nullable();
             $table->string('name');
             $table->text('description')->nullable();
