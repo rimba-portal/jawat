@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Rimba\Agreement\Models\Agreement;
 use Rimba\Attributing\Traits\HasPersonAttributes;
+use Rimba\Attributing\Traits\SeedsPersonAttributes;
 use Rimba\Hrm\Models\JobTitle;
 use Rimba\Organization\Models\OrgUnit;
 
@@ -24,10 +25,11 @@ use Rimba\Organization\Models\OrgUnit;
     'description',
     'attributes',
 ])]
-class JobPosition extends Model
+class JobPosition extends Model implements AfterJsonSeed
 {
     use HasFactory;
     use HasPersonAttributes;
+    use SeedsPersonAttributes;
 
     /**
      * Get the attributes that should be cast.
