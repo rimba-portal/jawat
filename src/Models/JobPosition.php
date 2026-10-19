@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Rimba\Agreement\Models\Agreement;
 use Rimba\Attributing\Traits\HasPersonAttributes;
 use Rimba\Attributing\Traits\SeedsPersonAttributes;
+use Rimba\Base\Contracts\AfterJsonSeed;
 use Rimba\Hrm\Models\JobTitle;
 use Rimba\Organization\Models\OrgUnit;
 
